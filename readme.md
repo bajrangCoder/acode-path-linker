@@ -3,8 +3,7 @@
 It helps you to easily navigate to other files that are linked in your currently opened file (same as vscode feature)
 
 ## How to use it?
-<video height="270" width="340" controls>
-  <source src="https://user-images.githubusercontent.com/71929976/213693817-46e1d6c7-beea-44a5-8e83-2cf75c217002.mp4" type="video/mp4">
+<video src="https://user-images.githubusercontent.com/71929976/213693817-46e1d6c7-beea-44a5-8e83-2cf75c217002.mp4" height="270" width="340" controls>
 </video>
 
 
