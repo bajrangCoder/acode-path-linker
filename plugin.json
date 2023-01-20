@@ -1,5 +1,5 @@
 {
-  "id": "me.bajrangcoder.linker",
+  "id": "acode.path.linker",
   "name": "Path Linker",
   "main": "dist/main.js",
   "version": "1.0.0",
