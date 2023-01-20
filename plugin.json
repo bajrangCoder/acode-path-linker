@@ -1,0 +1,16 @@
+{
+  "id": "me.bajrangcoder.linker",
+  "name": "Path Linker",
+  "main": "dist/main.js",
+  "version": "1.0.0",
+  "readme": "readme.md",
+  "icon": "icon.png",
+  "files": [],
+  "price": 0,
+  "author": {
+    "name": "Raunak Raj",
+    "email": "nkray21111983@gmail.com",
+    "url": "https://github.com/bajrangCoder/acode-path-linker",
+    "github": "bajrangCoder"
+  }
+}
