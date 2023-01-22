@@ -1,6 +1,6 @@
 {
   "name": "acode-path-linker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Path Linker For Acode",
   "main": "dist/main.js",
   "scripts": {

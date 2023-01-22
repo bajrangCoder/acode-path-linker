@@ -20,7 +20,7 @@ class PathLinker {
     
     async openFile(){
         let selectedText = editorManager.editor.session.getTextRange(editorManager.editor.getSelectionRange())
-        let pathRegex = /([a-zA-Z]|\.\/|\.\.\/|\/)[a-zA-Z0-9\/]*\.[a-zA-Z0-9]*/g;
+        let pathRegex = /^([a-zA-Z]|\.\/|\.\.\/|\/|.)([^\s]+\/)*[^\s]+\.[a-zA-Z0-9]{1,}$/g;
         let fileName = selectedText.match(pathRegex);
         if (!fileName) return;
         let {location} = editorManager.activeFile;
@@ -28,14 +28,16 @@ class PathLinker {
         if (!location.endsWith("/")) {
             location=location+"/";
         }
-        let reg = /^[a-zA-Z]/; // for testing, if any file name starts with alpabet
+        let reg = /^[a-zA-Z.][a-zA-Z0-9]*/g; // for testing, if any file name starts with alpabet or .
         if (fileName[0].startsWith("../")) {
             let parts = location.split("/");
             parts = parts.slice(0, -2);
             newLocation = parts.join("/");
             newLocation = newLocation+"/"+fileName[0].replace(/^(\.\.?\/|\/)/,'');
-        } else if (fileName[0].startsWith("./") || fileName[0].startsWith("/") || reg.test(fileName[0])) {
+        } else if (fileName[0].startsWith("./") || fileName[0].startsWith("/")) {
             newLocation=location+fileName[0].replace(/^(\.\.?\/|\/)/,'');
+        }else if(reg.test(fileName[0])){
+            newLocation=location+fileName[0];
         }else{
             window.toast("Not supported",4000);
             return;
