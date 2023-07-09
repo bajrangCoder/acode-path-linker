@@ -2,11 +2,12 @@
   "id": "acode.path.linker",
   "name": "Path Linker",
   "main": "dist/main.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "readme": "readme.md",
   "icon": "icon.png",
   "files": [],
   "price": 0,
+  "minVersionCode": 292,
   "author": {
     "name": "Raunak Raj",
     "email": "nkray21111983@gmail.com",

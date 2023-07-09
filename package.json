@@ -1,6 +1,6 @@
 {
   "name": "acode-path-linker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Path Linker For Acode",
   "main": "dist/main.js",
   "scripts": {
@@ -19,16 +19,27 @@
   },
   "homepage": "https://github.com/bajrangCoders/acode-plugin-template#readme",
   "dependencies": {
-    "@babel/cli": "^7.19.3",
-    "@babel/core": "^7.20.5",
-    "@babel/plugin-transform-runtime": "^7.19.6",
-    "@babel/preset-env": "^7.20.2",
-    "babel-loader": "^9.1.0",
+
+    "autoprefixer": "^10.4.14",
+
+    "filesize": "^10.0.7",
     "html-tag-js": "^1.1.22",
     "ip": "^1.1.8",
+    "postcss": "^8.4.24",
+    "postcss-loader": "^7.3.3",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^9.1.0",
     "jszip": "^3.10.1",
     "live-server": "^1.2.2",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.0"
   }
 }

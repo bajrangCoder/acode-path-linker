@@ -2,8 +2,9 @@ import plugin from '../plugin.json';
 
 const selectionMenu = acode.require('selectionMenu');
 const EditorFile = acode.require('EditorFile');
-const helpers = acode.require('helpers');
+const loader = acode.require('loader');
 const fsOperation = acode.require('fsOperation');
+const encodings = acode.require('encodings');
 
 class PathLinker {
     
@@ -15,7 +16,16 @@ class PathLinker {
         this.$imageEl.style.height = "auto";
         this.$imageEl.style.marginTop = "10px";
         this.$page.append(this.$imageEl);
-        selectionMenu.add(this.openFile.bind(this),"Go to file","all")
+        selectionMenu.add(this.openFile.bind(this),"⎋","all")
+    }
+    
+    isBinary(content) {
+        for (let i = 0; i < content.length; i++) {
+            if (content.charCodeAt(i) === 0) {
+                return true;
+            }
+        }
+        return false;
     }
     
     async openFile(){
@@ -50,9 +60,9 @@ class PathLinker {
         }
         const fileInfo = await fs.stat();
         const binData = await fs.readFile();
-        const fileContent = helpers.decodeText(binData);
+        const fileContent = await encodings.decode(binData, "utf-8");
         
-        if (helpers.isBinary(fileContent)) {
+        if (this.isBinary(fileContent)) {
           if (/image/i.test(fileInfo.type)) {
             const blob = new Blob([binData], { type: fileInfo.type });
             this.$page.settitle(fileInfo.name);
@@ -68,14 +78,14 @@ class PathLinker {
           return;
         }
         try {
-            helpers.showTitleLoader();
+            loader.showTitleLoader();
             new EditorFile(fileName[0].replace(/.*\//, ""),{
                 uri:newLocation,
             })
         } catch (e) {
             window.toast(e,4000)
         } finally {
-            helpers.removeTitleLoader();
+            loader.removeTitleLoader();
         }
     }
     
